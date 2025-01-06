@@ -1,0 +1,17 @@
+name: Build and Deploy
+on: push
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'checkout'
+        uses: actions/checkout@v4
+      - name: 'build and deploy'
+        uses: shalzz/zola-deploy-action@master
+        env:
+          # This will deploy to the main branch of windsleigh.github.io
+          PAGES_BRANCH: main
+          BUILD_DIR: .
+          TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+          # Specify your GitHub Pages repository here
+          REPOSITORY: windsleigh/windsleigh.github.io
