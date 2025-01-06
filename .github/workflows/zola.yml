@@ -12,6 +12,6 @@ jobs:
           # This will deploy to the main branch of windsleigh.github.io
           PAGES_BRANCH: main
           BUILD_DIR: .
-          TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+          TOKEN: ${{ secrets.TOKEN }}
           # Specify your GitHub Pages repository here
           REPOSITORY: windsleigh/windsleigh.github.io
