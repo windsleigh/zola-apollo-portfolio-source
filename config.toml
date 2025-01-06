@@ -1,16 +1,32 @@
-# The URL the site will be built for
-base_url = "https://example.com"
+base_url = "https://windsleigh.github.io"
+title = "Ben"
+theme = "apollo"
+default_language = "en"
+taxonomies = [{ name = "tags" }]
+compile_sass = false
+build_search_index = true
 
-# Whether to automatically compile all Sass files in the sass directory
-compile_sass = true
+[languages.es]
+title = "Ben"
+build_search_index = true
+taxonomies = [{ name = "tags" }]
 
-# Whether to build a search index to be used later on by a JavaScript library
-build_search_index = false
+[languages.es.translations]
+tags = "Etiquetas"
+projects = "Proyectos"
+blog = "Blog"
+menu_projects = "/proyectos"
+menu_blog = "/blog"
 
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
-highlight_code = false
+highlight_code = true
 
 [extra]
-# Put all your custom variables here
+theme = "toggle"
+socials = [
+    { name = "github", url = "https://github.com/windsleigh/", icon = "github" },
+]
+menu = [
+    { name = "/projects", url = "/posts", weight = 1 },
+    { name = "/blog", url = "/projects", weight = 2 },
+]
