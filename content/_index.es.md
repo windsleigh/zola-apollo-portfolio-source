@@ -5,7 +5,7 @@ template = "homepage.html"
 <div style="display: flex; align-items: flex-start; gap: 2rem; flex-direction: row-reverse;">
 <div>
 <p>Soy Benjamin Cordero, graduado en Ingeniería Civil Informática de la Universidad Adolfo Ibáñez, especializado en Linux y tecnología.</p>
-<p>Contáctame para cualquier consulta en</p>
+<p>Contáctame para cualquier consulta en: </p>
 <p><i class="fas fa-envelope"></i> Email: <a href="mailto:benjamincorderog@gmail.com" target="_blank">benjamincorderog@gmail.com</a></p>
 <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/benjacordero/" target="_blank">@benjacordero</a></p>
 </div>
