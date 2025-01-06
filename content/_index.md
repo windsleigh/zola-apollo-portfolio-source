@@ -1,5 +1,5 @@
 +++
-title = "Hey There"
+title = "Hey there"
 template = "homepage.html"
 +++
 <style>
