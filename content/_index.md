@@ -17,5 +17,3 @@ template = "homepage.html"
 - Backend: Python, C, TypeScript, SQL
 - DevOps: Docker, CI/CD, GIT
 - Specialties: Solving Tech Problems, Cloud Deployment, QA Testing
-
-make the link open in a new tab
