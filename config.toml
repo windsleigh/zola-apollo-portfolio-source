@@ -1,5 +1,5 @@
 base_url = "https://windsleigh.github.io"
-title = "Ben"
+title = "Ben @windsleigh"
 theme = "apollo"
 default_language = "en"
 taxonomies = [{ name = "tags" }]
