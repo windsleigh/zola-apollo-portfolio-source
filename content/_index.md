@@ -6,7 +6,7 @@ template = "homepage.html"
 <div style="display: flex; align-items: flex-start; gap: 2rem; flex-direction: row-reverse;">
 <div>
 <p>I'm Benjamin Cordero, a Computer Engineering graduate from Adolfo Ibáñez University, focused on Linux and tech. </p>
-<p>Contact me for any inquiries at </p>
+<p>Contact me for any inquiries at: </p>
 <p><i class="fas fa-envelope"> </i> Email: <a href="mailto:benjamincorderog@gmail.com">benjamincorderog@gmail.com</a>
 <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/benjacordero/">@benjacordero</a></p>
 </div>
