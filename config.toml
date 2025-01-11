@@ -1,4 +1,4 @@
-base_url = "https://windsleigh.github.io"
+base_url = "https://www.benjamincordero.dev"
 title = "Ben @windsleigh"
 theme = "apollo"
 default_language = "en"
@@ -27,6 +27,6 @@ socials = [
     { name = "github", url = "https://github.com/windsleigh/", icon = "github" },
 ]
 menu = [
-    # { name = "/projects", url = "/posts", weight = 1 },
-    # { name = "/blog", url = "/projects", weight = 2 },
+    # { name = "/projects", url = "/projects", weight = 1 },
+    # { name = "/blog", url = "/posts", weight = 2 },
 ]

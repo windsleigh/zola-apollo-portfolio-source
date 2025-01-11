@@ -32,7 +32,8 @@ template = "homepage.html"
 
 <div class="container">
 <div>
-<p>I'm Benjamin Cordero, a Computer Engineering graduate from Adolfo Ibáñez University, focused on Linux and tech. </p>
+<p>I'm Benjamin Cordero, a Computer Engineering graduate from Adolfo Ibáñez University.</p>
+<!-- <p>Check out some of my projects!</p> -->
 <p>Contact me for any inquiries at: </p>
 <p><i class="fas fa-envelope"> </i> Email: <a href="mailto:benjamincorderog@gmail.com">benjamincorderog@gmail.com</a>
 <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/benjacordero/">@benjacordero</a></p>
@@ -40,7 +41,8 @@ template = "homepage.html"
 <img src="hello.jpg" alt="Profile picture" class="profile-img">
 </div>
 
-## Tech Stack
-- Backend: Python, C, TypeScript, SQL
-- DevOps: Docker, CI/CD, GIT
-- Specialties: Solving Tech Problems, Cloud Deployment, QA Testing
+## Tech Knowledge
+- **Programming Languages**: Python, C, TypeScript, SQL
+- **IaaC**: Docker, GitHub Actions, Terraform, Ansible
+- **OS**: Linux, Windows , MacOS
+
