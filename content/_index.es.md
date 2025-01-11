@@ -40,7 +40,5 @@ margin-bottom: 1rem;
 ## Conocimientos Técnicos
 
 - **Lenguajes de Programación**: Python, C, TypeScript, SQL
-
 - **IaaC**: Docker, GitHub Actions, Terraform, Ansible
-
 - **Sistemas Operativos**: Linux, Windows, MacOS
