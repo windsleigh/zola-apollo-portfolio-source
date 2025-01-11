@@ -24,6 +24,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.aws_secret_key }}
         with:
           folder: public
-          bucket: ${{ secrets.bucketname }}
+          bucket: ${{ secrets.bucket_name }}
           private: false  # Changed to false since it's a public website
           bucket-region: us-east-1
