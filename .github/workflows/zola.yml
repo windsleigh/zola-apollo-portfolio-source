@@ -2,7 +2,7 @@ name: Build and Publish to AWS
 on:
   push:
     branches:
-      - main
+      - aws
 
 jobs:
   run:
