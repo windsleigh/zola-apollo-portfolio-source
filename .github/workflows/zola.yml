@@ -1,17 +1,39 @@
-name: Build and Deploy
-on: push
+name: Build Zola Site
+
+on:
+  push:
+    branches:
+      - aws
+
 jobs:
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: 'checkout'
+      - name: Checkout source repository
         uses: actions/checkout@v4
-      - name: 'build and deploy'
-        uses: shalzz/zola-deploy-action@master
-        env:
-          # This will deploy to the main branch of windsleigh.github.io
-          PAGES_BRANCH: main
-          BUILD_DIR: .
-          TOKEN: ${{ secrets.TOKEN }}
-          # Specify your GitHub Pages repository here
-          REPOSITORY: windsleigh/windsleigh.github.io
+
+      - name: Install Zola
+        run: |
+          curl -sL https://github.com/getzola/zola/releases/download/v0.17.2/zola-v0.17.2-x86_64-unknown-linux-gnu.tar.gz | tar xz
+          sudo mv zola /usr/local/bin
+
+      - name: Build Zola site
+        run: zola build
+
+      - name: Checkout AWS repository
+        uses: actions/checkout@v4
+        with:
+          repository: windsleigh/windsleigh-portfolio-aws
+          token: ${{ secrets.TOKEN }}
+          path: aws-repo
+
+      - name: Copy build files and push
+        run: |
+          rm -rf aws-repo/*
+          cp -r public/* aws-repo/
+          cd aws-repo
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Update built site"
+          git push
