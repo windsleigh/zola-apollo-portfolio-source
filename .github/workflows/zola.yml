@@ -15,36 +15,30 @@ jobs:
           submodules: 'recursive'
           token: ${{ secrets.TOKEN }}
 
-      - name: Debug directory structure
-        run: |
-          pwd
-          ls -la
-          ls -la themes/apollo || echo "Apollo theme directory not found"
-
-      - name: Initialize and update submodules
+      - name: Setup theme
         run: |
           git submodule init
-          git submodule update
+          git submodule update --recursive --remote
+          ls -la themes/apollo
 
       - name: Install Zola
         run: |
           curl -sL https://github.com/getzola/zola/releases/download/v0.17.2/zola-v0.17.2-x86_64-unknown-linux-gnu.tar.gz | tar xz
           sudo mv zola /usr/local/bin
 
-      - name: Verify Zola installation
-        run: zola --version
-
-      - name: List directory contents
+      - name: Verify config
         run: |
-          echo "Current directory:"
-          pwd
-          echo "Directory contents:"
+          echo "Content of config.toml:"
+          cat config.toml
+          echo "\nDirectory structure:"
           ls -R
 
       - name: Build Zola site
-        run: zola build
-        env:
-          ZOLA_BUILD_DIR: .
+        run: |
+          zola build --root .
+
+      - name: Verify build output
+        run: ls -la public/
 
       - name: Checkout AWS repository
         uses: actions/checkout@v4
