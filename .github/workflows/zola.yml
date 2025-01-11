@@ -11,11 +11,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          submodules: true  # Added this to fetch theme submodule
+          submodules: true
           
       - uses: taiki-e/install-action@v2
         with:
           tool: zola@0.17.2
+
+      - name: Debug Directory Structure
+        run: |
+          echo "Current directory structure:"
+          ls -la
+          echo "\nThemes directory:"
+          ls -la themes/
+          echo "\nApollo theme directory:"
+          ls -la themes/apollo/
+          echo "\nContent of config.toml:"
+          cat config.toml
           
       - name: Build
         run: zola build
