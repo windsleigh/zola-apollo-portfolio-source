@@ -11,6 +11,14 @@ jobs:
     steps:
       - name: Checkout source repository
         uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'  # This will fetch all submodules recursively
+          token: ${{ secrets.TOKEN }}
+
+      - name: Initialize and update submodules
+        run: |
+          git submodule init
+          git submodule update
 
       - name: Install Zola
         run: |
