@@ -1,15 +1,29 @@
-name: Build and Deploy
-on: push
+name: Build and Publish to AWS
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  build_and_deploy:
+  run:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: 'checkout'
-        uses: actions/checkout@v4
-      - name: 'build and deploy'
-        uses: shalzz/zola-deploy-action@master
+      - uses: actions/checkout@v3
+      
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: zola@0.17.2
+          
+      - name: Build
+        run: zola build
+        
+      - uses: reggionick/s3-deploy@v4
         env:
-          PAGES_BRANCH: main
-          BUILD_DIR: .
-          TOKEN: ${{ secrets.TOKEN }}
-          REPOSITORY: windsleigh/windsleigh-portfolio-aws
+          AWS_ACCESS_KEY_ID: ${{ secrets.aws_access_key }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.aws_secret_key }}
+        with:
+          folder: public
+          bucket: ${{ secrets.bucketname }}
+          private: false  # Changed to false since it's a public website
+          bucket-region: us-east-1

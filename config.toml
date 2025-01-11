@@ -1,4 +1,4 @@
-base_url = "http://aws-terraform-static-website-windsleigh.s3-website-us-east-1.amazonaws.com/"
+base_url = "http://windsleigh.s3-website-us-east-1.amazonaws.com"
 title = "Ben @windsleigh"
 theme = "apollo"
 default_language = "en"
