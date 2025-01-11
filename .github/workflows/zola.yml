@@ -10,7 +10,9 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v3
-      
+        with:
+          submodules: true  # Added this to fetch theme submodule
+          
       - uses: taiki-e/install-action@v2
         with:
           tool: zola@0.17.2
@@ -25,5 +27,5 @@ jobs:
         with:
           folder: public
           bucket: ${{ secrets.bucket_name }}
-          private: false  # Changed to false since it's a public website
+          private: false
           bucket-region: us-east-1
