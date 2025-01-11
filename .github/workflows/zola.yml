@@ -26,16 +26,17 @@ jobs:
           curl -sL https://github.com/getzola/zola/releases/download/v0.17.2/zola-v0.17.2-x86_64-unknown-linux-gnu.tar.gz | tar xz
           sudo mv zola /usr/local/bin
 
-      - name: Verify config
+      - name: Verify config and directory structure
         run: |
           echo "Content of config.toml:"
           cat config.toml
           echo "\nDirectory structure:"
-          ls -R
+          tree || ls -R
+          echo "\nTheme directory:"
+          ls -la themes/apollo/
 
       - name: Build Zola site
-        run: |
-          zola build --root .
+        run: zola build
 
       - name: Verify build output
         run: ls -la public/
