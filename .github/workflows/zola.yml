@@ -1,60 +1,15 @@
-name: Build Zola Site
-
-on:
-  push:
-    branches:
-      - aws
-
+name: Build and Deploy
+on: push
 jobs:
-  build:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source repository
+      - name: 'checkout'
         uses: actions/checkout@v4
-        with:
-          submodules: 'recursive'
-          token: ${{ secrets.TOKEN }}
-
-      - name: Setup theme
-        run: |
-          git submodule init
-          git submodule update --recursive --remote
-          ls -la themes/apollo
-
-      - name: Install Zola
-        run: |
-          curl -sL https://github.com/getzola/zola/releases/download/v0.17.2/zola-v0.17.2-x86_64-unknown-linux-gnu.tar.gz | tar xz
-          sudo mv zola /usr/local/bin
-
-      - name: Verify config and directory structure
-        run: |
-          echo "Content of config.toml:"
-          cat config.toml
-          echo "\nDirectory structure:"
-          tree || ls -R
-          echo "\nTheme directory:"
-          ls -la themes/apollo/
-
-      - name: Build Zola site
-        run: zola build
-
-      - name: Verify build output
-        run: ls -la public/
-
-      - name: Checkout AWS repository
-        uses: actions/checkout@v4
-        with:
-          repository: windsleigh/windsleigh-portfolio-aws
-          token: ${{ secrets.TOKEN }}
-          path: aws-repo
-
-      - name: Copy build files and push
-        run: |
-          rm -rf aws-repo/*
-          cp -r public/* aws-repo/
-          cd aws-repo
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "Update built site"
-          git push
+      - name: 'build and deploy'
+        uses: shalzz/zola-deploy-action@master
+        env:
+          PAGES_BRANCH: main
+          BUILD_DIR: .
+          TOKEN: ${{ secrets.TOKEN }}
+          REPOSITORY: windsleigh/windsleigh-portfolio-aws
