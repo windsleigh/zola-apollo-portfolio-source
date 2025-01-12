@@ -19,7 +19,7 @@ object-fit: cover;
 .container {
 flex-direction: column;
 align-items: center;
-/* text-align: center; */
+text-align: center;
 ** }**
 .profile-img {
 margin-bottom: 1rem;
