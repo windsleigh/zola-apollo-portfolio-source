@@ -21,7 +21,6 @@ template = "homepage.html"
   .container {
     flex-direction: column;
     align-items: center;
-/*     text-align: center; */
   }
   
   .profile-img {
